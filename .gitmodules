@@ -1,0 +1,3 @@
+[submodule "autobuild"]
+	path = autobuild
+	url = https://github.com/JCZ-Automatisering/autobuild.git
