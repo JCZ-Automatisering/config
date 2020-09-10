@@ -15,11 +15,10 @@ set(non_sources
         .gitignore
         README.md
         LICENSE
-        autobuild.py
         Dockerfile
         Doxyfile
     )
 
-add_executable(non_sources src/dummy.cpp ${non_sources})
-set_target_properties(non_sources PROPERTIES EXCLUDE_FROM_ALL TRUE)
+add_executable(non_sources_config src/dummy.cpp ${non_sources})
+set_target_properties(non_sources_config PROPERTIES EXCLUDE_FROM_ALL TRUE)
 
