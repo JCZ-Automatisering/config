@@ -9,7 +9,10 @@ set(CMAKE_CXX_STANDARD 11)
 enable_testing()
 
 add_subdirectory(src)
-add_subdirectory(test)
+
+if (NOT DEFINED JCZCONFIG_NO_TESTS)
+    add_subdirectory(test)
+endif()
 
 set(non_sources
         .gitignore
