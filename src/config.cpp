@@ -157,7 +157,7 @@ namespace jczconfig
         const ConfigSection config_section = get_section(section);
         if (!config_section.get_name().empty())
         {
-            for (ConfigValue value : config_section.section_members)
+            for (const ConfigValue &value: config_section.section_members)
             {
                 if (value.key == member)
                 {

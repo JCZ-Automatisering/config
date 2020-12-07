@@ -1,4 +1,5 @@
 *.user
 *.o
 build*
+!build_settings.sh
 

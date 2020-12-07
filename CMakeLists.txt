@@ -19,6 +19,11 @@ set(non_sources
         README.md
         LICENSE
         Dockerfile
+        Jenkinsfile
+        autobuild.ini
+        build_settings.sh
+        cppcheck.sh
+        coverage.sh
         Doxyfile
     )
 
