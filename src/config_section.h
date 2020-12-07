@@ -26,7 +26,7 @@ namespace jczconfig
             std::string to_string(void) const;
             std::string get_name(void) const;
 
-            bool has_member(const std::string &section_name) const;
+            bool has_member(const std::string &name) const;
             bool has_members(const std::vector<std::string> &names) const;
 
             std::string get_member(const std::string &member) const;

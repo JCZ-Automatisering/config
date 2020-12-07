@@ -26,3 +26,4 @@ endfunction()
 
 my_test(config_section_test config_section_test.cpp)
 my_test(config_test config_test.cpp)
+my_test(string_helpers_test string_helpers_test.cpp)

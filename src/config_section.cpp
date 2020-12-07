@@ -61,9 +61,9 @@ namespace jczconfig
      * @brief ConfigSection constructor
      * @param name The name of the config/ini section
      */
-    ConfigSection::ConfigSection(const std::string &name) :
+    ConfigSection::ConfigSection(const std::string &section_name) :
         section_members(),
-        section_name(name)
+        section_name(section_name)
     {
     }
 

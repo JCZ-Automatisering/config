@@ -27,9 +27,11 @@ TEST(TEST_NAME, init)
     ConfigSection sec = c.get_section("");
     EXPECT_EQ(sec.to_string(), "[]\n\n");
     EXPECT_FALSE(c.load(""));
-    
+
     std::vector<ConfigSection> sections = c.get_sections();
     EXPECT_TRUE(sections.empty());
+    EXPECT_FALSE(c.load("\n"));
+    EXPECT_FALSE(c.status());
 }
 
 const std::string invalid_ini = "thisisno=yes\navalidinifile\n\n";
@@ -71,11 +73,28 @@ TEST(TEST_NAME, simple)
 }
 
 /* todo: */
-const std::string complexer_ini = 
+const std::string complexer_ini =
+        "[]\n"
         "[section1]\n"
         "key1=value1\n"
         "key2=valkue2\n"
         "#[section2]\n"
         "[section3]\n"
         "key1=value3\n"
-        "key2=value4\n";
+        "key2=value4\n"
+        "nonkey\n";
+
+TEST(TEST_NAME, complex)
+{
+    Config c;
+
+    EXPECT_TRUE(c.load(complexer_ini));
+
+    EXPECT_TRUE(c.has_section("section1"));
+    EXPECT_FALSE(c.has_section("section2"));
+    EXPECT_TRUE(c.has_section("section3"));
+
+    const ConfigSection s3 = c.get_section("section3");
+    EXPECT_TRUE(s3.has_members({"key1", "key2"}));
+    EXPECT_FALSE(s3.has_member("nonkey"));
+}
