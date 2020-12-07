@@ -19,8 +19,7 @@ cat >> ${TMP} << "EOF"
     --enable=all \
     --suppress=missingIncludeSystem \
     --suppress=useStlAlgorithm \
-    --suppress=*:*json/json.hpp \
-    -I src -I src/config -I src/http -I src/socket -I src/json -I src/log \
+    -I src \
     src/
 EOF
 

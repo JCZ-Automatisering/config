@@ -21,7 +21,7 @@ function(my_test exe_name exe_sources)
         message("  src                  ${item}")
     endforeach()
 
-    add_test(${exe_name} ${exe_name})
+    add_test(NAME ${exe_name} COMMAND ${exe_name} "--gtest_output=xml:test_${exe_name}.xml")
 endfunction()
 
 my_test(config_section_test config_section_test.cpp)

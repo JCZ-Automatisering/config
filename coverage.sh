@@ -1,7 +1,7 @@
 #!/bin/sh
 
 DEFAULTS="--exclude-unreachable-branches --exclude-throw-branches --gcov-ignore-parse-errors"
-EXCLUDES="-e \"test*\" -e \"/tmp*\" -e \"src/json/json.hpp\" -e \"manual/*\" -e \"build*\""
+EXCLUDES="-e \"test*\" -e \"/tmp*\" -e \"build*\""
 
 eval gcovr -k ${DEFAULTS} --branches ${EXCLUDES} --xml-pretty -r . -o build/coverage.xml > /dev/null &
 G_PID=$!
