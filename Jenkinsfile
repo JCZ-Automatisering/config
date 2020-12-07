@@ -24,7 +24,7 @@ pipeline {
         stage('Build docker image') {
             steps {
                 script {
-                    dockerImage = docker.build("jczconfig_build", "-f docker/Dockerfile .")
+                    dockerImage = docker.build("jczconfig_build", "-f Dockerfile .")
 
                     docker_args = "--name jczconfig_build " +
                                   " -v " + env.HOME + ":" + env.HOME +
