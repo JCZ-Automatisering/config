@@ -59,7 +59,7 @@ namespace jczconfig
 
         for (std::string line: lines)
         {
-            line = StringHelpers::trim_string(line);
+            line = StringHelpers::trim_string_remove_new_line(line);
             if (line.size())
             {
                 if (line[0] == '[')
