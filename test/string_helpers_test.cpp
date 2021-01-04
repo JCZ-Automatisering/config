@@ -26,3 +26,30 @@ TEST(TEST_NAME, get_string_between_two_chars)
     result = StringHelpers::get_string_between_two_chars(input_string, '.', '.');
     EXPECT_TRUE(result.empty());
 }
+
+
+TEST(TEST_NAME, string_last_char_is)
+{
+    EXPECT_FALSE(StringHelpers::string_last_char_is("", ' '));
+    EXPECT_TRUE(StringHelpers::string_last_char_is(" ", ' '));
+    EXPECT_FALSE(StringHelpers::string_last_char_is("X", ' '));
+    EXPECT_TRUE(StringHelpers::string_last_char_is("X ", ' '));
+}
+
+TEST(TEST_NAME, string_remove_last_char_if)
+{
+    std::string test = "";
+    EXPECT_FALSE(StringHelpers::string_remove_last_char_if(test, ' '));
+    test = " ";
+    EXPECT_TRUE(StringHelpers::string_remove_last_char_if(test, ' '));
+    EXPECT_TRUE(test.empty());
+    test = "test ";
+    EXPECT_TRUE(StringHelpers::string_remove_last_char_if(test, ' '));
+    EXPECT_EQ(test, "test");
+}
+
+TEST(TEST_NAME, trim_string_remove_new_line)
+{
+    EXPECT_EQ(StringHelpers::trim_string_remove_new_line("   test\n"), "test");
+}
+
