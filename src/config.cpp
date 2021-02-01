@@ -32,7 +32,7 @@ namespace jczconfig
 
     /**
      * @brief Load configuration from string.
-     * @param filename  The filename to load config from.
+     * @param config_data The config_data string to load config from.
      *
      * If filename is not a file, but a config.ini string, it will use that string as config.
      *
