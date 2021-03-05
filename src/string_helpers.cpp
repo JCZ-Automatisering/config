@@ -102,6 +102,28 @@ namespace jczconfig
     }
 
     /**
+     * @brief Determine if the input string starts with a character
+     * @param input string to search in
+     * @param character character to check
+     * @return True if the string starts with character if non empty, false otherwise
+     */
+    bool StringHelpers::string_first_char_is(const std::string &input, const char character)
+    {
+       if (input.empty())
+       {
+          return false;
+       }
+
+       const char first_string_character = input[0];
+       if (first_string_character == character)
+       {
+          return true;
+       }
+
+       return false;
+    }
+
+    /**
      * @brief Remove last character of a string if it matches a certain character
      * @param input The input string to operate on
      * @param character The character to check as last char on the input string
@@ -112,6 +134,23 @@ namespace jczconfig
         if (string_last_char_is(input, character))
         {
             input.resize(input.size() - 1);
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @brief Remove first character of a string if it matches a certain character
+     * @param input The input string to operate on
+     * @param character The character to check as first char on the input string
+     * @return True if first character matches & removed, false otherwise
+     */
+    bool StringHelpers::string_remove_first_char_if(std::string &input, const char character)
+    {
+        if (string_first_char_is(input, character))
+        {
+            input.erase(0, 1);
             return true;
         }
 

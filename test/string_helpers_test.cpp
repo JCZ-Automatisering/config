@@ -36,6 +36,16 @@ TEST(TEST_NAME, string_last_char_is)
     EXPECT_TRUE(StringHelpers::string_last_char_is("X ", ' '));
 }
 
+TEST(TEST_NAME, string_first_char_is)
+{
+   EXPECT_FALSE(StringHelpers::string_first_char_is("", ' '));
+   EXPECT_FALSE(StringHelpers::string_first_char_is(" ", 'x'));
+   EXPECT_TRUE(StringHelpers::string_first_char_is(" ", ' '));
+   EXPECT_TRUE(StringHelpers::string_first_char_is("xyz", 'x'));
+   EXPECT_FALSE(StringHelpers::string_first_char_is("Xyz", 'x'));
+   EXPECT_TRUE(StringHelpers::string_first_char_is("Xyz", 'X'));
+}
+
 TEST(TEST_NAME, string_remove_last_char_if)
 {
     std::string test = "";
@@ -47,6 +57,19 @@ TEST(TEST_NAME, string_remove_last_char_if)
     EXPECT_TRUE(StringHelpers::string_remove_last_char_if(test, ' '));
     EXPECT_EQ(test, "test");
 }
+
+TEST(TEST_NAME, string_remove_first_char_if)
+{
+    std::string test = "";
+    EXPECT_FALSE(StringHelpers::string_remove_first_char_if(test, ' '));
+    test = " ";
+    EXPECT_TRUE(StringHelpers::string_remove_first_char_if(test, ' '));
+    EXPECT_TRUE(test.empty());
+    test = " test";
+    EXPECT_TRUE(StringHelpers::string_remove_first_char_if(test, ' '));
+    EXPECT_EQ(test, "test");
+}
+
 
 TEST(TEST_NAME, trim_string_remove_new_line)
 {
